@@ -5,15 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
+    android:background="@color/item_utama"
     tools:context=".RegisterActivity">
 
     <!--Toolbar-->
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@drawable/shape_toolbar01">
+        android:layout_height="250dp">
 
         <ImageButton
             android:id="@+id/backBtn"
@@ -30,13 +29,13 @@
             android:layout_height="110dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            android:src="@drawable/chill" />
+            android:src="@drawable/gambar_register" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/iconIv"
-            android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
             android:fontFamily="sans-serif-condensed"
             android:text="Buat Akun Baru"
@@ -44,7 +43,7 @@
             android:textSize="28sp" />
     </RelativeLayout>
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="40dp"
@@ -153,21 +152,25 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--Register Button-->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/registerBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/cPasswordTil"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/shape_button01"
-                android:text="Register"
-                android:textColor="@color/white"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/registerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shape_button01"
+            android:text="Register"
+            android:textColor="@color/black"/>
+
 
         </RelativeLayout>
 
 
 
-    </ScrollView>
+
+
+    </RelativeLayout>
 
 
 </RelativeLayout>
