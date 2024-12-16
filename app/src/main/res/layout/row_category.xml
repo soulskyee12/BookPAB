@@ -18,7 +18,7 @@
         android:padding="12dp">
 
         <TextView
-            android:id="@+id/categoriesTv"
+            android:id="@+id/categoryTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Horror"
@@ -28,7 +28,7 @@
             android:textSize="18sp"/>
 
         <ImageButton
-            android:id="@+id/btnDeleteCategories"
+            android:id="@+id/deleteBtn"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
