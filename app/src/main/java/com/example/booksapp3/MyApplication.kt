@@ -1,11 +1,14 @@
 package com.example.booksapp3
 
 import android.app.Application
+import android.app.ProgressDialog
+import android.content.Context
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import com.github.barteksc.pdfviewer.PDFView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -124,6 +127,89 @@ class MyApplication : Application() {
                     }
                 })
         }
+
+        fun deleteBook(context: Context, bookId: String, bookUrl: String, bookTitle: String){
+            // detail dari parameter
+            /*
+            * 1 - context - digunakan ketika membutuhkan toast, progressdialog, dll..
+            * 2 - bookId - utk menghapus buku dri db
+            * 3 - bookUrl - menghapus buku dari storage
+            * 4 - bookTitle - menampilkan dialog ...*/
+            
+            val TAG = "DELETE_BOOK_TAG"
+
+            Log.d(TAG, "deleteBook: menghapus...")
+            
+            // progress dialog
+            val progressDialog = ProgressDialog(context)
+            progressDialog.setTitle("Mohon Tunggu")
+            progressDialog.setMessage("Deleting $bookTitle...")
+            progressDialog.setCanceledOnTouchOutside(false)
+            progressDialog.show()
+
+            Log.d(TAG, "deleteBook: Menghapus dari storage")
+            val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(bookUrl)
+            storageReference.delete()
+                .addOnSuccessListener {
+                    Log.d(TAG, "deleteBook: Terhapus dari storage")
+                    Log.d(TAG, "deleteBook: Mengahpus dari database...")
+
+                    val ref = FirebaseDatabase.getInstance().getReference("Books")
+                    ref.child(bookId)
+                        .removeValue()
+                        .addOnSuccessListener {
+                            progressDialog.dismiss()
+                            Toast.makeText(context,"Berhasil Terhapus", Toast.LENGTH_SHORT).show()
+                            Log.d(TAG, "deleteBook: Menghapus dari db...")
+
+                        }
+                        .addOnFailureListener { e ->
+                            progressDialog.dismiss()
+                            Log.d(TAG, "deleteBook: Gagal menghapus buku dari db karena ${e.message}")
+                            Toast.makeText(context,"Gagal menghapus  karena ${e.message}", Toast.LENGTH_SHORT).show()
+                        }
+                }
+                .addOnFailureListener { e ->
+                    progressDialog.dismiss()
+                    Log.d(TAG, "deleteBook: Gagal menghapus buku dari storage karena karena ${e.message}")
+                    Toast.makeText(context,"Gagal menghapus  karena ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+        }
+
+        fun incrementBookViewCount(bookId: String){
+            // ambil views dari buku sekarang
+            val ref = FirebaseDatabase.getInstance().getReference("Books")
+            ref.child(bookId)
+                .addListenerForSingleValueEvent(object :ValueEventListener{
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        // ambil views
+                        var viewsCount ="${snapshot.child("viewsCount").value}"
+
+                        if (viewsCount == "" || viewsCount == "null"){
+                            viewsCount = "0";
+                        }
+
+                        // increment views
+                        val newViesCount = viewsCount.toLong() + 1
+
+                        // Increment views
+                        val hashMap = HashMap<String, Any>()
+                        hashMap["viewsCount"] = newViesCount
+
+                        // set ke database
+                        val dbRef = FirebaseDatabase.getInstance().getReference("Books")
+                        dbRef.child(bookId)
+                            .updateChildren(hashMap)
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+
+                    }
+
+                })
+        }
+
+
     }
 
 

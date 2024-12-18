@@ -41,8 +41,8 @@ class PdfListAdminActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Validate and retrieve intent extras
-        categoryId = intent.getStringExtra("categoryId") ?: throw IllegalArgumentException("Category ID must be provided")
-        category = intent.getStringExtra("category") ?: throw IllegalArgumentException("Category must be provided")
+        categoryId = intent.getStringExtra("categoryId")!!
+        category = intent.getStringExtra("category")!!
 
         // Setup adapter with empty list
         adapterPdfAdmin = AdapterPdfAdmin(this, pdfArrayList)
@@ -58,7 +58,7 @@ class PdfListAdminActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                try{
-                   adapterPdfAdmin.filter!!.filter(s.toString().toLowerCase())
+                   adapterPdfAdmin.filter!!.filter(s)
                }
                catch (e: Exception){
                    Log.d(TAG, "onTextChanged: ${e.message}")
@@ -68,6 +68,11 @@ class PdfListAdminActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
             }
         })
+
+        // listener back btn
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
 
     }
 

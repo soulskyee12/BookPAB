@@ -1,11 +1,13 @@
 package com.example.booksapp3
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.booksapp3.databinding.RowPdfAdminBinding
 
@@ -23,10 +25,10 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
     private lateinit var binding: RowPdfAdminBinding
 
     // filter object
-    var filter: FilterPdfAdmin? = null
+    private var filter: FilterPdfAdmin? = null
 
     //constructor
-    constructor( context: Context, pdfArrayList: ArrayList<ModelPdf>) : super() {
+    constructor(context: Context, pdfArrayList: ArrayList<ModelPdf>) : super() {
         this.pdfArrayList = pdfArrayList
         this.context = context
         this.filterList = pdfArrayList
@@ -78,6 +80,47 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
 
         //load pdf size
         MyApplication.loadPdfSize(pdfUrl, title, holder.sizeTv)
+
+        // listener moreBtn
+        holder.moreBtn.setOnClickListener {
+            moreOptionsDialog(model, holder)
+        }
+
+        // listener openDetailActivity
+        holder.itemView.setOnClickListener{
+            val intent = Intent(context, PdfDetailActivity::class.java)
+            intent.putExtra("bookId",pdfId)
+            context.startActivity(intent)
+        }
+    }
+
+    private fun moreOptionsDialog(model: ModelPdf, holder: HolderPdfAdmin) {
+        // ambil id, url, title dari buku
+        val bookId = model.id
+        val bookUrl = model.url
+        val bookTitle = model.title
+
+        // options untuk memperlihatkan dialog
+        val options = arrayOf("Edit", "Delete")
+
+        // alert dialog
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Choose Option")
+            .setItems(options) { dialog, position ->
+                // handle item klik
+                if (position == 0) {
+                    // ketika edit diklik
+                    val intent = Intent(context, PdfEditActivity::class.java)
+                    intent.putExtra("bookId", bookId) // mengirimkan nilai bookId ke next activity
+                    context.startActivity(intent) // Memulai activity
+                } else if (position == 1) {
+                    // ketika delete diklik
+
+                    // konfirmasi dialog sebelum menghapus
+                    MyApplication.deleteBook(context, bookId, bookUrl, bookTitle)
+                }
+            }
+            .show() // Tampilkan dialog
     }
 
     override fun getItemCount(): Int {
