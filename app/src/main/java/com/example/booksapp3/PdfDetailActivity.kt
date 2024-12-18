@@ -82,10 +82,11 @@ class PdfDetailActivity : AppCompatActivity() {
                     binding.viewsTv.text = viewsCount
                     binding.downloadsTv.text = downloadsCount
                     binding.dateTv.text = date
+
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+
                 }
 
             })

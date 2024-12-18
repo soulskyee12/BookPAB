@@ -166,25 +166,24 @@ class PdfEditActivity : AppCompatActivity() {
     private var selectedCategoryTitle = ""
 
     private fun categoryDialog() {
-
-        // untuk string array
+        // Array untuk menampilkan nama kategori di dialog
         val categoriesArray = arrayOfNulls<String>(categoryTitleArrayList.size)
-        for(i in categoryTitleArrayList.indices){
+        for (i in categoryTitleArrayList.indices) {
             categoriesArray[i] = categoryTitleArrayList[i]
-
-            // alert dialog
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Choose Category")
-                .setItems(categoriesArray){dialog, position ->
-                    // listener save id dan title
-                    selectedCategoryId = categoryIdArrayList[position]
-                    selectedCategoryTitle = categoryTitleArrayList[position]
-
-                    //set ke textview
-                    binding.categoryTv.text = selectedCategoryTitle
-                }
-                .show()
         }
+
+        // Membangun dan menampilkan AlertDialog
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Choose Category")
+            .setItems(categoriesArray) { dialog, position ->
+                // Mendapatkan id dan judul kategori yang dipilih
+                selectedCategoryId = categoryIdArrayList[position]
+                selectedCategoryTitle = categoryTitleArrayList[position]
+
+                // Menampilkan judul kategori yang dipilih ke TextView
+                binding.categoryTv.text = selectedCategoryTitle
+            }
+        builder.show()
     }
 
     private fun loadCategories() {

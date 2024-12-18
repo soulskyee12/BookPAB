@@ -56,6 +56,7 @@
         android:drawableStart="@drawable/search_icon"
         android:hint="Search"
         android:padding="10dp"
+        android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView

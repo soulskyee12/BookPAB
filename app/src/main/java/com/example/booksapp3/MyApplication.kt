@@ -79,7 +79,7 @@ class MyApplication : Application() {
 
                    // ubah ke pdfView
                     pdfView.fromBytes((bytes))
-                        .pages(0)
+                        //.pages(0)
                         .spacing(0)
                         .swipeHorizontal(false)
                         .enableSwipe(false)
