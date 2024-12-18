@@ -26,7 +26,7 @@
             android:src="@drawable/ic_back_white" />
         <!--title-->
         <TextView
-
+            android:id="@+id/toolbartitleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -37,9 +37,9 @@
 
     <!--all content -->
     <ScrollView
-        android:layout_above="@id/bookOptionsLl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/bookOptionsLl"
         android:layout_below="@id/toolbarRl"
         android:padding="10dp">
 
@@ -235,7 +235,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
-
+        <!--read button-->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/readBookBtn"
             android:layout_width="0dp"
@@ -246,6 +246,33 @@
             android:padding="10dp"
             android:text="Read"
             android:textColor="@color/white" />
+
+        <!--donwload button-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/downloadsBookBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_weight="1"
+            android:background="@color/item_utama"
+            android:drawableTop="@drawable/ic_download_white"
+            android:padding="10dp"
+            android:text="Download"
+            android:textColor="@color/white" />
+
+        <!--donwload button-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/favoriteBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="1dp"
+            android:layout_weight="1"
+            android:background="@color/item_utama"
+            android:drawableTop="@drawable/ic_favorite_border_white"
+            android:padding="10dp"
+            android:text="Add to favorite"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
 
     </LinearLayout>
 

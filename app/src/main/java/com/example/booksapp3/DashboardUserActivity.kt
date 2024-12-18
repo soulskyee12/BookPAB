@@ -2,6 +2,7 @@ package com.example.booksapp3
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -28,6 +29,11 @@ class DashboardUserActivity : AppCompatActivity() {
             finish()
         }
 
+        //handle click open profile
+        binding.profileBtn.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+
     }
 
     private fun checkUser() {
@@ -36,12 +42,20 @@ class DashboardUserActivity : AppCompatActivity() {
         if(firebaseUser == null) {
             //kalau belum login maka user akan tetap brd di dashboard tnpa login
             binding.subTitleTv.text = "Tidak Bisa Masuk"
+
+            //sembunyiin profile dan logout
+            binding.profileBtn.visibility = View.GONE
+            binding.logoutBtn.visibility = View.GONE
         }
         else {
             // jika sudah login maka ke user info/db
             val email= firebaseUser.email
             // ambil data dari email lalu di tampilin melalui text di subTitleTv dengang method .text
             binding.subTitleTv.text = email
+
+            //nampilin profile dan logout
+            binding.profileBtn.visibility = View.VISIBLE
+            binding.logoutBtn.visibility = View.VISIBLE
         }
     }
 }

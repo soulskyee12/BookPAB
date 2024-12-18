@@ -1,5 +1,6 @@
 package com.example.booksapp3
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -71,7 +72,7 @@ class PdfListAdminActivity : AppCompatActivity() {
 
         // listener back btn
         binding.backBtn.setOnClickListener {
-            onBackPressed()
+            startActivity(Intent(this, DashboardAdminActivity::class.java))
         }
 
     }

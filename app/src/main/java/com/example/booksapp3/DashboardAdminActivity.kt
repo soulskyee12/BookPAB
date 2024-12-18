@@ -75,6 +75,10 @@ class DashboardAdminActivity : AppCompatActivity() {
         binding.addPdfFab.setOnClickListener{
             startActivity(Intent(this, PdfAddActivity::class.java))
         }
+
+        binding.profileBtn.setOnClickListener{
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
     }
 
     private fun loadCategories() {
@@ -129,7 +133,7 @@ class DashboardAdminActivity : AppCompatActivity() {
                             val email = snapshot.child("email").value.toString()
 
                             // Set nama dan email ke TextView
-                            binding.titleTv.text = "Welcome $name"
+                            binding.toolbartitleTv.text = "Welcome $name"
                             binding.subTitleTv.text = email
                         }
                     }
