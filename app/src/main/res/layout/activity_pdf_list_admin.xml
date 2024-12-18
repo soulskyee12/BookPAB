@@ -15,6 +15,7 @@
         android:background="@drawable/shape_toolbar2">
         <!--backbutton-->
         <ImageButton
+            android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -58,6 +59,7 @@
         android:textColorHint="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/booksRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/searchEt"

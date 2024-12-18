@@ -15,6 +15,7 @@ firebaseAuth = "23.1.0"
 firebaseDatabase = "21.0.0"
 firebaseCrashlytics = "19.3.0"
 googleFirebaseCrashlytics = "3.0.2"
+firebaseStorage = "21.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,6 +32,7 @@ firebase-database = { group = "com.google.firebase", name = "firebase-database",
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics", version.ref = "firebaseCrashlytics" }
 #yg bener, yg asli udah g bisa
 android-pdf-viewer = "com.github.mhiew:android-pdf-viewer:3.2.0-beta.3"
+firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

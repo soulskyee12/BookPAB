@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
+    android:background="@color/black"
     tools:context=".DashboardAdminActivity">
 
 
@@ -72,6 +72,7 @@
         android:drawableStart="@drawable/search_icon"
         android:hint="Search"
         android:padding="10dp"
+        android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
 <!--    categories-->
@@ -106,14 +107,14 @@
             android:minHeight="50dp"
             android:text="+ Add Category"
             android:textAllCaps="false"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <!-- Add Pdf-->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addPdfFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/orange"
+            android:backgroundTint="@color/kuning_utama"
             android:src="@drawable/ic_book_white"
             android:tint="@color/white"
             app:fabCustomSize="50dp" />

@@ -3,94 +3,95 @@ package com.example.booksapp3
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.ComponentDialog
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.booksapp3.databinding.ActivityCategoryAddBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class CategoryAddActivity : AppCompatActivity() {
 
-    // sebagai view binding
+    // View binding
     private lateinit var binding: ActivityCategoryAddBinding
 
-    // firebase authentifikasi
+    // Firebase Auth
     private lateinit var firebaseAuth: FirebaseAuth
 
-    // progress dialog.
+    // Progress Dialog
     private lateinit var progressDialog: ProgressDialog
 
+    private var category = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCategoryAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // init //firebase auth
+        // Init Firebase Auth
         firebaseAuth = FirebaseAuth.getInstance()
 
-        //configure progress dialog
+        // Configure progress dialog
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Harap Tunggu...")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        //pindah klik, kembali
+        // Tombol kembali
         binding.backBtn.setOnClickListener {
             onBackPressed()
         }
 
-        // pindah klik, upload kategori
-        binding.submitBtn.setOnClickListener{
+        // Tombol submit
+        binding.submitBtn.setOnClickListener {
             validateData()
         }
     }
 
-    private var category = ""
-
     private fun validateData() {
-        // validate Data
+        // Ambil data kategori
         category = binding.categoryEt.text.toString().trim()
 
-        // validate Data
+        // Validasi data
         if (category.isEmpty()) {
-            Toast.makeText(this,"Enter Category...", Toast.LENGTH_SHORT).show()
-        }
-        else {
+            Toast.makeText(this, "Masukkan kategori...", Toast.LENGTH_SHORT).show()
+        } else {
             addCategoryFirebase()
         }
     }
 
     private fun addCategoryFirebase() {
-        // tampilkan progress...
+        // Tampilkan progress dialog
         progressDialog.show()
 
-        // ambil timestap db
+        // Ambil timestamp
         val timestamp = System.currentTimeMillis()
 
-        // mempersiapkan data di firebase db
+        // Persiapkan data untuk disimpan di Firebase
         val hashMap = HashMap<String, Any>()
-        hashMap["id"] ="$timestamp"
+        hashMap["id"] = "" // Akan diisi setelah kita dapat key unik dari push()
         hashMap["category"] = category
         hashMap["timestamp"] = timestamp
         hashMap["uid"] = "${firebaseAuth.uid}"
 
-        // tambahkan ke firebase db: Database Root > Categories > categoryId > category info
+        // Rujukan ke Firebase
         val ref = FirebaseDatabase.getInstance().getReference("Categories")
-        ref.child("timestamp")
+
+        // Gunakan push() untuk membuat ID unik setiap kali menambah data
+        val id = ref.push().key
+        hashMap["id"] = id!!
+
+        // Simpan data ke Firebase di node dengan key unik
+        ref.child(id)
             .setValue(hashMap)
             .addOnSuccessListener {
-                //berhasil ditambah
+                // Berhasil tambah
                 progressDialog.dismiss()
-                Toast.makeText(this,"Berhasil Ditambah...", Toast.LENGTH_SHORT).show()
-
+                Toast.makeText(this, "Kategori berhasil ditambahkan...", Toast.LENGTH_SHORT).show()
+                // Kosongkan field setelah berhasil menambah
+                binding.categoryEt.text.clear()
             }
-            .addOnFailureListener {e ->
-                //Gagal Ditambah
+            .addOnFailureListener { e ->
+                // Gagal tambah
                 progressDialog.dismiss()
-                Toast.makeText(this,"Gagal untuk menambah kategori", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Gagal menambah kategori: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 }
