@@ -51,7 +51,8 @@
         android:id="@+id/pdfView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbarRl" />
+        android:layout_below="@id/toolbarRl"
+        android:background="@color/black" />
     <!--loading progress bar-->
     <ProgressBar
         android:id="@+id/progressBar"
