@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.firebase.crashlytics)
     implementation(libs.android.pdf.viewer)
+    implementation(libs.glide)
     implementation(libs.firebase.storage)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

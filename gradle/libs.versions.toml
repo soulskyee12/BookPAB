@@ -32,6 +32,8 @@ firebase-database = { group = "com.google.firebase", name = "firebase-database",
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics", version.ref = "firebaseCrashlytics" }
 #yg bener, yg asli udah g bisa
 android-pdf-viewer = "com.github.mhiew:android-pdf-viewer:3.2.0-beta.3"
+#glide lib
+glide = { group = "com.github.bumptech.glide", name = "glide", version = "4.16.0" }
 firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
 
 [plugins]

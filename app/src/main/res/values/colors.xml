@@ -6,8 +6,10 @@
     <color name="green">#5DD45A</color>
     <color name="grey">#EBE8E8</color>
     <color name="grey1">#c5c5c5</color>
-    <color name="item_utama">#0E0E0E</color>
+<!--    <color name="item_utama">#0E0E0E</color>-->
+    <color name="item_utama">#1C1C1C</color>
     <color name="abu_abu">#232326</color>
+    <color name="abu_abu1">#FBFBFB</color>
     <color name="kuning_utama">#FCE545</color>
     <color name="grey2">#232326</color>
 

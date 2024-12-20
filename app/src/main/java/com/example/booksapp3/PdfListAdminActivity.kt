@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener
 
 class PdfListAdminActivity : AppCompatActivity() {
 
+
     // View binding
     private lateinit var binding: ActivityPdfListAdminBinding
 
@@ -37,6 +38,7 @@ class PdfListAdminActivity : AppCompatActivity() {
     private lateinit var adapterPdfAdmin: AdapterPdfAdmin
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        window.statusBarColor = resources.getColor(R.color.item_utama)
         super.onCreate(savedInstanceState)
         binding = ActivityPdfListAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)

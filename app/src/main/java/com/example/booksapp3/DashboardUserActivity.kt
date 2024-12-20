@@ -44,10 +44,10 @@ class DashboardUserActivity : AppCompatActivity() {
             finish()
         }
 
-//        //handle click open profile
-//        binding.profileBtn.setOnClickListener {
-//            startActivity(Intent(this, ProfileActivity::class.java))
-//        }
+        //handle click open profile
+        binding.profileBtn.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
 
     }
 

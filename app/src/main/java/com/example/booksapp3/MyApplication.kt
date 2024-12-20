@@ -10,6 +10,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import com.github.barteksc.pdfviewer.PDFView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -77,21 +78,21 @@ class MyApplication : Application() {
                 .addOnSuccessListener { bytes ->
                     Log.d(TAG, "loadPdfSize: Size Bytes $bytes")
 
-                   // ubah ke pdfView
+                    // ubah ke pdfView
                     pdfView.fromBytes((bytes))
                         //.pages(0)
                         .spacing(0)
                         .swipeHorizontal(false)
                         .enableSwipe(false)
-                        .onError{t ->
+                        .onError { t ->
                             progressBar.visibility = View.INVISIBLE
                             Log.d(TAG, "loadPdfFromUrlSinglePage: ${t.message}")
                         }
-                        .onPageError{page,t ->
+                        .onPageError { page, t ->
                             progressBar.visibility = View.INVISIBLE
                             Log.d(TAG, "loadPdfFromUrlSinglePage: ${t.message}")
                         }
-                        .onLoad{ nbPages ->
+                        .onLoad { nbPages ->
                             Log.d(TAG, "loadPdfFromUrlSinglePage: Pages: $nbPages")
                             // pdf loading, bisa masukin halaman sama thumbnail
                             progressBar.visibility = View.INVISIBLE
@@ -108,7 +109,7 @@ class MyApplication : Application() {
                 }
         }
 
-        fun loadCategory(categoryId: String, categoryTv: TextView){
+        fun loadCategory(categoryId: String, categoryTv: TextView) {
             // memuat kateogri dari kategori id, firebase
             val ref = FirebaseDatabase.getInstance().getReference("Categories")
             ref.child(categoryId)
@@ -128,18 +129,18 @@ class MyApplication : Application() {
                 })
         }
 
-        fun deleteBook(context: Context, bookId: String, bookUrl: String, bookTitle: String){
+        fun deleteBook(context: Context, bookId: String, bookUrl: String, bookTitle: String) {
             // detail dari parameter
             /*
             * 1 - context - digunakan ketika membutuhkan toast, progressdialog, dll..
             * 2 - bookId - utk menghapus buku dri db
             * 3 - bookUrl - menghapus buku dari storage
             * 4 - bookTitle - menampilkan dialog ...*/
-            
+
             val TAG = "DELETE_BOOK_TAG"
 
             Log.d(TAG, "deleteBook: menghapus...")
-            
+
             // progress dialog
             val progressDialog = ProgressDialog(context)
             progressDialog.setTitle("Mohon Tunggu")
@@ -159,33 +160,47 @@ class MyApplication : Application() {
                         .removeValue()
                         .addOnSuccessListener {
                             progressDialog.dismiss()
-                            Toast.makeText(context,"Berhasil Terhapus", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Berhasil Terhapus", Toast.LENGTH_SHORT).show()
                             Log.d(TAG, "deleteBook: Menghapus dari db...")
 
                         }
                         .addOnFailureListener { e ->
                             progressDialog.dismiss()
-                            Log.d(TAG, "deleteBook: Gagal menghapus buku dari db karena ${e.message}")
-                            Toast.makeText(context,"Gagal menghapus  karena ${e.message}", Toast.LENGTH_SHORT).show()
+                            Log.d(
+                                TAG,
+                                "deleteBook: Gagal menghapus buku dari db karena ${e.message}"
+                            )
+                            Toast.makeText(
+                                context,
+                                "Gagal menghapus  karena ${e.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                 }
                 .addOnFailureListener { e ->
                     progressDialog.dismiss()
-                    Log.d(TAG, "deleteBook: Gagal menghapus buku dari storage karena karena ${e.message}")
-                    Toast.makeText(context,"Gagal menghapus  karena ${e.message}", Toast.LENGTH_SHORT).show()
+                    Log.d(
+                        TAG,
+                        "deleteBook: Gagal menghapus buku dari storage karena karena ${e.message}"
+                    )
+                    Toast.makeText(
+                        context,
+                        "Gagal menghapus  karena ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
         }
 
-        fun incrementBookViewCount(bookId: String){
+        fun incrementBookViewCount(bookId: String) {
             // ambil views dari buku sekarang
             val ref = FirebaseDatabase.getInstance().getReference("Books")
             ref.child(bookId)
-                .addListenerForSingleValueEvent(object :ValueEventListener{
+                .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         // ambil views
-                        var viewsCount ="${snapshot.child("viewsCount").value}"
+                        var viewsCount = "${snapshot.child("viewsCount").value}"
 
-                        if (viewsCount == "" || viewsCount == "null"){
+                        if (viewsCount == "" || viewsCount == "null") {
                             viewsCount = "0";
                         }
 
@@ -207,6 +222,34 @@ class MyApplication : Application() {
                     }
 
                 })
+        }
+
+        public fun removeFromFavorite(context: Context, bookId: String) {
+            val TAG = "REMOVE_FAV_TAG"
+            Log.d(TAG, "removeFromFavorite: Removing from favorites")
+
+            val firebaseAuth = FirebaseAuth.getInstance()
+
+            // db ref
+            val ref = FirebaseDatabase.getInstance().getReference("Users")
+            ref.child(firebaseAuth.uid!!).child("Favorites").child(bookId)
+                .removeValue()
+                .addOnSuccessListener {
+                    Log.d(TAG, "removeFromFavorite: Removed from fav")
+                    Toast.makeText(
+                        context,
+                        "Dihapus dari favorit",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                .addOnFailureListener { e ->
+                    Log.d(TAG, "removeFromFavorite: Failed to remove from fav due to ${e.message}")
+                    Toast.makeText(
+                        context,
+                        "Gagal untuk menghapus karena ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
         }
 
 

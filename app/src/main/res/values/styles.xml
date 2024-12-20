@@ -6,4 +6,17 @@
         <item name="cornerSize">20%</item>
     </style>
 
+<!--    siv comment circular-->
+    <style name="styleCircleImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+
+    <!--transparan bg dialog-->
+    <style name="CustomDialog" parent="android:Theme.Material.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+    </style>
 </resources>

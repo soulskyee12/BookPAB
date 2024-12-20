@@ -32,6 +32,7 @@ class DashboardAdminActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.statusBarColor = resources.getColor(R.color.item_utama)
         binding = ActivityDashboardAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

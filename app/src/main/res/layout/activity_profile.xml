@@ -160,7 +160,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Since"
+                android:text="Favorite Book"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -172,5 +172,32 @@
                 android:textColor="@color/black" />
         </LinearLayout>
     </LinearLayout>
+
+    <!--    pemisah-->
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/detailsLl"
+        android:layout_marginTop="5dp"
+        android:background="@color/grey1" />
+
+    <TextView
+        android:id="@+id/favoriteLabelTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view1"
+        android:padding="5dp"
+        android:text="Favorite Books"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favoriteRv"
+        android:layout_below="@id/favoriteLabelTv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/row_pdf_favorite"/>
 
 </RelativeLayout>

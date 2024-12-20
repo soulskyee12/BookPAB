@@ -24,6 +24,7 @@ class PdfViewActivity : AppCompatActivity() {
     var bookId = " "
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        window.statusBarColor = resources.getColor(R.color.item_utama)
         super.onCreate(savedInstanceState)
         binding = ActivityPdfViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
