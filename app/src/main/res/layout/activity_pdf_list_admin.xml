@@ -55,7 +55,7 @@
         android:background="@drawable/search_custom"
         android:drawableStart="@drawable/search_icon"
         android:hint="Search"
-        android:padding="10dp"
+        android:padding="15dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
 

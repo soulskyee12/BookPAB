@@ -11,11 +11,11 @@
     <EditText
         android:id="@+id/searchEt"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_margin="10dp"
         android:background="@drawable/search_custom"
         android:drawableStart="@drawable/search_icon"
-        android:hint="Search"
+        android:hint="@string/placeholder_awal"
         android:padding="10dp"
         android:textColorHint="@color/white" />
     <!--recyclerview load book-->

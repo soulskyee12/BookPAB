@@ -10,23 +10,26 @@
 
     <ImageView
         android:id="@+id/iconIv"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/chill"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/gambar_menuawal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Selamat Datang di BooksPAB"
-        android:textColor="@color/kuning_utama"
-        android:textSize="24sp"
+        android:layout_width="291dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="35dp"
+        android:text="Perpustakaan Original ebook Terlengkap"
+        android:textColor="@color/white"
+        android:textSize="35sp"
         android:textStyle="bold"
-        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iconIv" />
 
@@ -37,11 +40,12 @@
         android:background="@drawable/shape_button01"
         android:text="LOGIN"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="150dp"
-        android:layout_marginHorizontal="24dp"/>
+        android:layout_marginBottom="130dp"
+        android:layout_marginHorizontal="35dp"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/continueBtn"
@@ -54,7 +58,7 @@
         android:textColor="@color/kuning_utama"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="15dp"
-        android:layout_marginHorizontal="24dp"/>
+        android:layout_marginHorizontal="35dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

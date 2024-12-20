@@ -2,5 +2,11 @@
     <string name="app_name">BooksPAB</string>
     <string name="new_user_signup">Tidak punya akun? <b>Yah kasian</b></string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>]
+    //logo heritage
+    <string name="gambar_awal">gambar awal</string>
+    //search placeholder buku
+    <string name="placeholder_awal"> Search</string>
+    //gambar submit book
+    <string name="gambar_submit">gambar submit</string>
 </resources>

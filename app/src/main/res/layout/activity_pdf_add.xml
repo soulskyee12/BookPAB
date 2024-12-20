@@ -11,7 +11,7 @@
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="match_parent"
         android:background="@drawable/shape_toolbar01">
         <!--back btn-->
         <ImageButton
@@ -25,11 +25,11 @@
         <!--img icon-->
         <ImageView
             android:id="@+id/iconIv"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="250dp"
+            android:layout_height="240dp"
             android:layout_below="@id/backBtn"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/chill" />
+            android:src="@drawable/gambar_submitbook" />
 
         <!--        title -->
         <TextView
@@ -39,7 +39,8 @@
             android:layout_below="@id/iconIv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="add new book"
+            android:text="Add New Book"
+            android:textStyle="bold"
             android:textColor="@color/white"
             android:textSize="28sp" />
         <!--        attach pdf btn -->
@@ -61,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="225dp"
+        android:layout_marginTop="400dp"
         android:layout_marginEnd="30dp"
         app:hintEnabled="false">
 
@@ -74,7 +75,7 @@
             android:drawablePadding="10dp"
             android:hint="Book Title"
             android:inputType="textPersonName|textCapWords"
-            android:padding="10dp"
+            android:padding="15dp"
             android:textColor="@color/black"
             android:textColorHint="@color/grey1"
             android:textSize="16sp" />
@@ -86,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/titleTil"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         app:hintEnabled="false">
 
@@ -99,7 +100,7 @@
             android:drawablePadding="10dp"
             android:hint="Book Description"
             android:inputType="textImeMultiLine|textCapSentences"
-            android:padding="10dp"
+            android:padding="15dp"
             android:textColorHint="@color/grey1"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -110,7 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/descriptionTil"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/shape_edittext01"
         android:drawableStart="@drawable/ic_category_orange"
@@ -118,7 +119,7 @@
         android:drawablePadding="10dp"
         android:gravity="center_vertical"
         android:hint="Book Category"
-        android:padding="10dp"
+        android:padding="15dp"
         android:textColor="@color/black"
         android:textColorHint="@color/grey1"
         android:textSize="16sp" />
@@ -129,11 +130,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/categoryTv"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/orange"
-        android:text="upload"
-        android:textColor="@color/white" />
+        android:backgroundTint="@color/kuning_utama"
+        android:text="UPLOAD"
+        android:padding="15dp"
+        android:textColor="@color/item_utama" />
 
 
 </RelativeLayout>
