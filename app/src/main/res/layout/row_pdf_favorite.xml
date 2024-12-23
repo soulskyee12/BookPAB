@@ -42,6 +42,7 @@
             android:layout_toEndOf="@id/pdfRl"
             android:ellipsize="end"
             android:maxLines="1"
+            android:textColor="@color/item_utama"
             android:text="Book Title" />
 
         <!--deskripsi-->
@@ -55,6 +56,7 @@
             android:layout_toEndOf="@id/pdfRl"
             android:ellipsize="end"
             android:maxLines="4"
+            android:textColor="@color/item_utama"
             android:text="the description of the book" />
 
         <!--category-->
@@ -66,6 +68,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:maxLines="1"
+            android:textColor="@color/item_utama"
             android:text="category" />
 
         <!--        size-->
@@ -76,6 +79,7 @@
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@id/pdfRl"
             android:maxLines="1"
+            android:textColor="@color/item_utama"
             android:text="13MB" />
 
         <!--    date    -->
@@ -89,6 +93,7 @@
             android:layout_toEndOf="@id/sizeTv"
             android:maxLines="1"
             android:text="dd/MM/YY"
+            android:textColor="@color/item_utama"
             android:textAlignment="center" />
 
         <!--show more option buton-->

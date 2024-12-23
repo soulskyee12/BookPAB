@@ -74,7 +74,7 @@
                 android:fontFamily="@font/montserrat"
                 android:textStyle="bold"
                 android:inputType="textPersonName|textCapWords"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textColorHint="@color/grey1" />
         </com.google.android.material.textfield.TextInputLayout>
         <!--        update profile-->

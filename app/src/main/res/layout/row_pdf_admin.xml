@@ -11,8 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/kuning_utama"
-        >
+        android:background="@color/kuning_utama">
 
         <RelativeLayout
             android:id="@+id/pdfRl"
@@ -43,6 +42,7 @@
             android:layout_toEndOf="@id/pdfRl"
             android:ellipsize="end"
             android:maxLines="1"
+            android:textColor="@color/black"
             android:text="The Book Title" />
 
         <!--deskripsi-->
@@ -56,6 +56,7 @@
             android:layout_toEndOf="@id/pdfRl"
             android:ellipsize="end"
             android:maxLines="4"
+            android:textColor="@color/black"
             android:text="the description of the book" />
 
         <!--category-->
@@ -67,6 +68,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:maxLines="1"
+            android:textColor="@color/black"
             android:text="category" />
 
         <!--        size-->
@@ -77,6 +79,7 @@
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@id/pdfRl"
             android:maxLines="1"
+            android:textColor="@color/black"
             android:text="13MB" />
 
         <!--    date    -->
@@ -90,6 +93,7 @@
             android:layout_toEndOf="@id/sizeTv"
             android:maxLines="1"
             android:text="dd/MM/YY"
+            android:textColor="@color/black"
             android:textAlignment="center" />
 
         <!--show more option buton-->

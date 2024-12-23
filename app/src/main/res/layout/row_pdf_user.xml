@@ -43,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/pdfRl"
             android:maxLines="1"
+            android:textColor="@color/black"
             android:text="Book Title" />
 
         <!--        book description-->
@@ -56,7 +57,8 @@
             android:layout_toEndOf="@id/pdfRl"
             android:ellipsize="end"
             android:maxLines="4"
-            android:text="Book Description" />
+            android:text="Book Description"
+            android:textColor="@color/black"/>
 
         <!--        book category-->
         <TextView
@@ -67,6 +69,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:maxLines="1"
+            android:textColor="@color/black"
             android:text="Category" />
 
         <!--        book size-->
@@ -78,6 +81,7 @@
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@id/pdfRl"
             android:maxLines="1"
+            android:textColor="@color/black"
             android:text="14MB" />
 
         <!--   date     -->
@@ -90,6 +94,7 @@
             android:layout_toStartOf="@id/categoryTv"
             android:layout_toEndOf="@id/sizeTv"
             android:maxLines="1"
+            android:textColor="@color/black"
             android:text="dd/MM/YYYY"
             android:textAlignment="center" />
 
