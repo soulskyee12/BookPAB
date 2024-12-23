@@ -4,8 +4,5 @@
 
     <solid android:color="@color/item_utama"/>
 
-<corners android:topRightRadius="20dp"
-    android:topLeftRadius="20dp"/>
-
 
 </shape>

@@ -1,5 +1,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/abu_abu" /> <!-- Background color -->
+    <solid android:color="@color/grey2" /> <!-- Background color -->
     <corners android:radius="20dp" /> <!-- Adjust the radius for the curve -->
     <padding
         android:left="8dp"

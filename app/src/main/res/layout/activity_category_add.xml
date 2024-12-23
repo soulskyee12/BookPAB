@@ -12,7 +12,7 @@
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="match_parent"
         android:background="@drawable/shape_toolbar01">
 
         <ImageButton
@@ -22,15 +22,15 @@
             android:layout_margin="10dp"
             android:background="@android:color/transparent"
             android:padding="5dp"
-            android:src="@drawable/ic_back_white"/>
+            android:src="@drawable/ic_back_white" />
 
         <ImageView
             android:id="@+id/iconIv"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_centerHorizontal="true"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_below="@id/backBtn"
-            android:src="@drawable/chill"/>
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/gambar_submitbook" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
             android:fontFamily="sans-serif-condensed"
             android:text="Add New Category"
             android:textColor="@color/white"
-            android:textSize="28sp"/>
+            android:textSize="28sp" />
 
     </RelativeLayout>
 
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="370dp"
         app:hintEnabled="false">
 
         <EditText
@@ -65,8 +65,8 @@
             android:hint="Category Title"
             android:inputType="textPersonName|textCapSentences"
             android:padding="10dp"
-            android:textColor="@color/orange"
-            android:textColorHint="@color/orange"/>
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,6 +80,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/shape_button01"
         android:text="Submit"
+        android:textStyle="bold"
         android:textColor="@color/black"/>
 
 

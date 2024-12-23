@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileEditActivity">
+    tools:context=".ProfileEditActivity"
+    android:background="@color/item_utama">
 
 
     <RelativeLayout
@@ -42,7 +43,7 @@
             android:layout_below="@id/toolbartitleTv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            android:background="@color/white"
+            android:background="@color/grey"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_person_orange"
             app:shapeAppearanceOverlay="@style/styleRoundedCornersImage" />
@@ -70,6 +71,8 @@
                 android:drawableStart="@drawable/ic_person_orange"
                 android:drawablePadding="10dp"
                 android:hint="Name"
+                android:fontFamily="@font/montserrat"
+                android:textStyle="bold"
                 android:inputType="textPersonName|textCapWords"
                 android:textColor="@color/black"
                 android:textColorHint="@color/grey1" />
@@ -83,7 +86,8 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/shape_button01"
             android:text="Update"
-            android:textColor="@color/white" />
+            android:textStyle="bold"
+            android:textColor="@color/black" />
 
 
     </RelativeLayout>

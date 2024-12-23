@@ -285,7 +285,7 @@
             android:drawableTop="@drawable/ic_book_white"
             android:padding="10dp"
             android:text="Read"
-            android:textColor="@color/white" />
+            android:textColor="@color/kuning_utama" />
 
         <!--donwload button-->
         <androidx.appcompat.widget.AppCompatButton
@@ -298,7 +298,7 @@
             android:drawableTop="@drawable/ic_download_white"
             android:padding="10dp"
             android:text="Download"
-            android:textColor="@color/white" />
+            android:textColor="@color/kuning_utama" />
 
         <!--donwload button-->
         <androidx.appcompat.widget.AppCompatButton
@@ -311,7 +311,7 @@
             android:drawableTop="@drawable/ic_favorite_border_white"
             android:padding="10dp"
             android:text="Add favorite"
-            android:textColor="@color/white"
+            android:textColor="@color/kuning_utama"
             android:textSize="12sp" />
 
     </LinearLayout>

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/shape_rect2"
+    android:background="@drawable/shape_rect3"
     android:padding="20dp">
 
     <ImageButton
@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/backBtn"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="50dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/commentEt"
@@ -40,7 +40,10 @@
             android:drawablePadding="10dp"
             android:inputType="textMultiLine|textCapSentences"
             android:drawableStart="@drawable/ic_add_comment_black"
-            android:hint="Comment"/>
+            android:hint="Comment"
+            android:textColorHint="@color/white"
+            android:textStyle="bold"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,8 +53,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/commentTil"
         android:layout_marginTop="20dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:text="Submit"
+        android:textStyle="bold"
         android:background="@drawable/shape_button01"/>
 
 

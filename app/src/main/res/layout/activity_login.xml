@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/iconIv"
-            android:layout_width="250dp"
-            android:layout_height="240dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:src="@drawable/gambar_login" />
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/iconIv"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="35dp"
             android:fontFamily="sans-serif-condensed"
             android:text="Sign In"
@@ -54,7 +54,6 @@
                 app:hintEnabled="false">
 
 
-
                 <EditText
                     android:id="@+id/emailEt"
                     android:layout_width="match_parent"
@@ -62,11 +61,10 @@
                     android:background="@drawable/shape_edittext01"
                     android:drawableStart="@drawable/ic_email_orange"
                     android:drawablePadding="10dp"
-                    android:padding="15dp"
                     android:hint="Email"
-                    android:textColorHint="@color/orange"
+                    android:padding="15dp"
                     android:textColor="@color/white"
-                    />
+                    android:textColorHint="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -74,12 +72,12 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passwordTil"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/emailTil"
                 android:layout_marginTop="15dp"
+                app:hintEnabled="false"
                 app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/orange"
-                android:layout_height="wrap_content"
-                app:hintEnabled="false">
+                app:passwordToggleTint="@color/white">
 
                 <EditText
                     android:id="@+id/passwordEt"
@@ -88,11 +86,11 @@
                     android:background="@drawable/shape_edittext01"
                     android:drawableStart="@drawable/ic_password_orange"
                     android:drawablePadding="10dp"
-                    android:padding="15dp"
-                    android:inputType="textPassword"
                     android:hint="Password"
-                    android:textColorHint="@color/orange"
-                    android:textColor="@color/orange" />
+                    android:inputType="textPassword"
+                    android:padding="15dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Forgot Password-->
@@ -105,7 +103,7 @@
                 android:layout_marginTop="5dp"
                 android:padding="5dp"
                 android:text="Forgot Password?"
-                android:textColor="@color/orange"/>
+                android:textColor="@color/white" />
 
             <!--Login Button-->
             <androidx.appcompat.widget.AppCompatButton
@@ -114,6 +112,7 @@
                 android:id="@+id/loginBtn"
                 android:layout_below="@id/forgotTv"
                 android:text="LOGIN"
+                android:textStyle="bold"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_button01"
                 android:textColor="@color/item_utama"
