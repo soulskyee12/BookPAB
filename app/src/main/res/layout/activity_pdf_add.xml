@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,13 +8,14 @@
     android:layout_height="match_parent"
     tools:context=".PdfAddActivity">
 
-    <!--    toolbar-->
+    <!-- Toolbar -->
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/shape_toolbar01">
-        <!--back btn-->
+
+        <!-- Tombol Back -->
         <ImageButton
             android:id="@+id/backBtn"
             android:layout_width="wrap_content"
@@ -22,7 +24,8 @@
             android:background="@android:color/transparent"
             android:padding="5dp"
             android:src="@drawable/ic_back_white" />
-        <!--img icon-->
+
+        <!-- Gambar Icon -->
         <ImageView
             android:id="@+id/iconIv"
             android:layout_width="250dp"
@@ -31,7 +34,7 @@
             android:layout_centerHorizontal="true"
             android:src="@drawable/gambar_submitbook" />
 
-        <!--        title -->
+        <!-- Judul -->
         <TextView
             android:id="@+id/titleTv"
             android:layout_width="wrap_content"
@@ -40,23 +43,14 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:text="Add New Book"
+            android:textSize="28sp"
             android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textSize="28sp" />
-        <!--        attach pdf btn -->
-        <ImageButton
-            android:id="@+id/attachPdfBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="10dp"
-            android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:src="@drawable/ic_attach_white" />
+            android:textColor="@color/white" />
 
+        <!-- (Dihapus) ImageButton attachPdfBtn lama yang di toolbar -->
     </RelativeLayout>
 
-    <!--    input title-->
+    <!-- Input Title -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/titleTil"
         android:layout_width="match_parent"
@@ -71,16 +65,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_edittext01"
-            android:drawableStart="@drawable/ic_pdf_gray"
             android:drawablePadding="10dp"
             android:hint="Book Title"
             android:inputType="textPersonName|textCapWords"
             android:padding="15dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textColorHint="@color/grey1"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
-    <!--    input deskripsi-->
+
+    <!-- Input Deskripsi -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/descriptionTil"
         android:layout_width="match_parent"
@@ -96,15 +91,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_edittext01"
-            android:drawableStart="@drawable/ic_pdf_gray"
             android:drawablePadding="10dp"
             android:hint="Book Description"
             android:inputType="textImeMultiLine|textCapSentences"
             android:padding="15dp"
             android:textColorHint="@color/grey1"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
-    <!--    pick category from dialog-->
+
+    <!-- Pilih Kategori -->
     <TextView
         android:id="@+id/categoryTv"
         android:layout_width="match_parent"
@@ -114,18 +111,19 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/shape_edittext01"
-        android:drawableStart="@drawable/ic_category_orange"
         android:drawableEnd="@drawable/ic_arrow_down_gray"
         android:drawablePadding="10dp"
         android:gravity="center_vertical"
         android:hint="Book Category"
         android:padding="15dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textColorHint="@color/grey1"
-        android:textSize="16sp" />
-    <!--    button upload pdf-->
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- Tombol Attach PDF dengan ikon di sisi kiri (drawableLeft) -->
     <Button
-        android:id="@+id/submitBtn"
+        android:id="@+id/attachPdfBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/categoryTv"
@@ -133,9 +131,31 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:backgroundTint="@color/kuning_utama"
-        android:text="UPLOAD"
+        android:drawableLeft="@drawable/ic_attach_white"
+        android:drawablePadding="10dp"
+        android:text="Attach PDF"
+        android:textAllCaps="false"
+        android:textColor="@color/item_utama"
+        android:textStyle="bold"
         android:padding="15dp"
-        android:textColor="@color/item_utama" />
+        android:layoutDirection="ltr"
+        android:gravity="center" />
 
+
+    <!-- Tombol Upload PDF -->
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/attachPdfBtn"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/kuning_utama"
+        android:text="Upload"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textColor="@color/item_utama"
+        android:padding="15dp" />
 
 </RelativeLayout>

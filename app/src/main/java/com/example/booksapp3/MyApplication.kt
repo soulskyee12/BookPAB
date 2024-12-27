@@ -224,7 +224,7 @@ class MyApplication : Application() {
                 })
         }
 
-        public fun removeFromFavorite(context: Context, bookId: String) {
+        public fun hapusDariFavorite(context: Context, bookId: String) {
             val TAG = "REMOVE_FAV_TAG"
             Log.d(TAG, "removeFromFavorite: Removing from favorites")
 

@@ -134,7 +134,7 @@ class DashboardAdminActivity : AppCompatActivity() {
                             val email = snapshot.child("email").value.toString()
 
                             // Set nama dan email ke TextView
-                            binding.toolbartitleTv.text = "Welcome $name"
+                            binding.toolbartitleTv.text = "Welcome, $name"
                             binding.subTitleTv.text = email
                         }
                     }

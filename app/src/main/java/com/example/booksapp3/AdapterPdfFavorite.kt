@@ -5,9 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.example.booksapp3.databinding.RowPdfFavoriteBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -54,7 +52,7 @@ class AdapterPdfFavorite : RecyclerView.Adapter<AdapterPdfFavorite.HolderPdfFavo
         }
         //handle click remove fav
         holder.removeFavBtn.setOnClickListener {
-            MyApplication.removeFromFavorite(context, model.id)
+            MyApplication.hapusDariFavorite(context, model.id)
 
         }
     }

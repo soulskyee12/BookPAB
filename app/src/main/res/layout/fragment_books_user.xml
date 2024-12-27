@@ -18,6 +18,7 @@
         android:drawableStart="@drawable/search_icon"
         android:hint="@string/placeholder_awal"
         android:padding="10dp"
+        android:textColor="@color/white"
         android:textColorHint="@color/white" />
     <!--recyclerview load book-->
     <androidx.recyclerview.widget.RecyclerView

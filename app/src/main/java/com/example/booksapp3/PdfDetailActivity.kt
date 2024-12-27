@@ -1,21 +1,13 @@
 package com.example.booksapp3
 
 import android.app.ProgressDialog
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.renderscript.Sampler.Value
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.booksapp3.databinding.ActivityPdfDetailBinding
 import com.example.booksapp3.databinding.DialogCommentAddBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -97,7 +89,7 @@ class PdfDetailActivity : AppCompatActivity() {
             } else {
                 // user login, bisa klik favorite
                 if (isInMyFavorite) {
-                    MyApplication.removeFromFavorite(this, bookId)
+                    MyApplication.hapusDariFavorite(this, bookId)
                 } else {
                     // gak di fav. maka tambah
                     addToFavorite()
@@ -254,7 +246,6 @@ class PdfDetailActivity : AppCompatActivity() {
                     binding.titleTv.text = bookTitle
                     binding.descriptionTv.text = description
                     binding.viewsTv.text = viewsCount
-                    binding.downloadsTv.text = downloadsCount
                     binding.dateTv.text = date
 
                 }

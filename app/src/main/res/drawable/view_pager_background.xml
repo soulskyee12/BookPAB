@@ -1,0 +1,13 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Latar belakang hitam transparan -->
+    <solid android:color="#66000000"/> <!-- 40% opacity black -->
+
+    <!-- Garis tepi kuning -->    <stroke
+    android:color="@color/kuning_utama"
+    android:width="2dp"/>
+
+    <!-- Sudut melengkung -->
+    <corners android:radius="10dp"/>
+</shape>

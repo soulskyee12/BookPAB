@@ -5,8 +5,8 @@
     android:layout_height="140dp"
     android:layout_marginBottom="5dp"
     android:elevation="0dp"
-    app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="5dp"
+    app:cardBackgroundColor="@color/kuning_utama"
+    app:cardCornerRadius="15dp"
     app:contentPadding="5dp">
 
     <RelativeLayout
@@ -19,7 +19,7 @@
             android:layout_width="100dp"
             android:layout_height="140dp"
             android:layout_marginEnd="5dp"
-            android:background="@color/grey1">
+            android:background="@drawable/rounded_background">
             <!--pdf view-->
             <com.github.barteksc.pdfviewer.PDFView
                 android:id="@+id/pdfView"

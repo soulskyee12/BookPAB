@@ -5,46 +5,48 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
+    android:background="@color/black"
     tools:context=".DashboardUserActivity">
 
     <!--Ini buat toolbar-->
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="100dp"
         android:background="@drawable/shape_toolbar2">
-
+        <!--gambar profile user-->
         <ImageButton
             android:id="@+id/profileBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
             android:src="@drawable/account_icon" />
-
+        <!--judul-->
         <TextView
             android:id="@+id/titleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:text="Dashboard User"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@id/profileBtn"
+            android:text="Welcome Agus Salim"
             android:textColor="@color/white"
-            android:textStyle="bold" />
-
+            android:textSize="18sp" />
+        <!--subtitles-->
         <TextView
             android:id="@+id/subTitleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/titleTv"
-            android:layout_centerHorizontal="true"
-            android:text="abc@example.com"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/profileBtn"
+            android:text="contoh@gmail.com"
             android:textColor="@color/white" />
-
+        <!--log out button -->
         <ImageButton
             android:id="@+id/logoutBtn"
             android:layout_width="wrap_content"
@@ -57,6 +59,7 @@
 
     </RelativeLayout>
 
+
     <!--show book categories tabs-->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
@@ -64,17 +67,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbarRl"
         android:layout_margin="5dp"
-        android:background="@android:color/transparent"
+        android:background="@color/black"
         app:tabBackground="@drawable/tab_selector"
         app:tabIndicatorFullWidth="false"
         app:tabIndicatorHeight="0dp"
-        app:tabMode="scrollable" />
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/black"
+        app:tabTextColor="@color/kuning_utama" />
 
     <!--  show book categories in fragment  -->
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tabLayout"/>
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabLayout"
+        android:background="@color/black" />
 
 </RelativeLayout>

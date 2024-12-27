@@ -3,7 +3,6 @@ package com.example.booksapp3
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -11,7 +10,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class SplashActivity : AppCompatActivity() {
+class LoadingActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +45,7 @@ class SplashActivity : AppCompatActivity() {
                             // user, menuju ke user dashboard
                             startActivity(
                                 Intent(
-                                    this@SplashActivity,
+                                    this@LoadingActivity,
                                     DashboardUserActivity::class.java
                                 )
                             )
@@ -55,7 +54,7 @@ class SplashActivity : AppCompatActivity() {
                             // admin, menuju ke admin dashboard
                             startActivity(
                                 Intent(
-                                    this@SplashActivity,
+                                    this@LoadingActivity,
                                     DashboardAdminActivity::class.java
                                 )
                             )

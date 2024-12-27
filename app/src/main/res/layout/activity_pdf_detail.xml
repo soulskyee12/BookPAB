@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".PdfDetailActivity">
 
-
-    <!--toolbar-->
+    <!-- Toolbar -->
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@drawable/shape_toolbar2">
-        <!--backbutton-->
+        android:background="@drawable/shape_toolbar2"
+        android:backgroundTint="@color/kuning_utama">
+
+        <!-- Tombol Kembali -->
         <ImageButton
             android:id="@+id/backBtn"
             android:layout_width="wrap_content"
@@ -23,23 +26,23 @@
             android:layout_marginStart="10dp"
             android:background="@android:color/transparent"
             android:padding="5dp"
-            android:src="@drawable/ic_back_white" />
-        <!--title-->
+            android:src="@drawable/ic_back_black" />
+
+        <!-- Judul Toolbar -->
         <TextView
             android:id="@+id/toolbartitleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="Book Details"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textStyle="bold" />
     </RelativeLayout>
 
-    <!--all content -->
+    <!-- Semua konten -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/bookOptionsLl"
         android:layout_below="@id/toolbarRl"
         android:padding="10dp">
 
@@ -47,12 +50,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <!--book info-->
-            <RelativeLayout
 
+            <!-- Bagian info buku (PDF Preview + Table info) -->
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <!--book preview-->
+
+                <!-- Preview PDF -->
                 <RelativeLayout
                     android:id="@+id/pdfRl"
                     android:layout_width="110dp"
@@ -60,36 +64,35 @@
                     android:layout_marginEnd="5dp"
                     android:background="@color/grey1">
 
-                    <!--pdfViewer-->
                     <com.github.barteksc.pdfviewer.PDFView
                         android:id="@+id/pdfView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
-                    <!--progress bar-->
+
                     <ProgressBar
                         android:id="@+id/progressBar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                 </RelativeLayout>
 
-                <!--book title-->
+                <!-- Judul Buku -->
                 <TextView
                     android:id="@+id/titleTv"
-                    style="@style/TextAppearance.MaterialComponents.Headline6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/pdfRl"
-                    android:text="Book Title" />
+                    android:text="Book Title"
+                    android:textColor="@color/white"
+                    style="@style/TextAppearance.MaterialComponents.Headline6" />
 
-
-                <!--table-->
+                <!-- Tabel Info Buku -->
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/titleTv"
                     android:layout_toEndOf="@id/pdfRl">
 
-                    <!--category row-->
+                    <!-- Category -->
                     <TableRow>
 
                         <TextView
@@ -98,7 +101,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
-                            android:text="Category" />
+                            android:text="Category"
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/categoryTv"
@@ -107,10 +111,11 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
                             android:layout_weight="1"
-                            android:text="N/A" />
+                            android:text="N/A"
+                            android:textColor="@color/white" />
                     </TableRow>
 
-                    <!--date row-->
+                    <!-- Date -->
                     <TableRow android:layout_marginTop="5dp">
 
                         <TextView
@@ -119,7 +124,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
-                            android:text="Date" />
+                            android:text="Date"
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/dateTv"
@@ -128,10 +134,11 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
                             android:layout_weight="1"
-                            android:text="N/A" />
+                            android:text="N/A"
+                            android:textColor="@color/white" />
                     </TableRow>
 
-                    <!--size row-->
+                    <!-- Size -->
                     <TableRow android:layout_marginTop="5dp">
 
                         <TextView
@@ -140,7 +147,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
-                            android:text="size" />
+                            android:text="size"
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/sizeTv"
@@ -149,10 +157,11 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
                             android:layout_weight="1"
-                            android:text="N/A" />
+                            android:text="N/A"
+                            android:textColor="@color/white" />
                     </TableRow>
 
-                    <!--views count row-->
+                    <!-- Views -->
                     <TableRow android:layout_marginTop="5dp">
 
                         <TextView
@@ -161,7 +170,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
-                            android:text="views" />
+                            android:text="views"
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/viewsTv"
@@ -170,31 +180,11 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
                             android:layout_weight="1"
-                            android:text="N/A" />
+                            android:text="N/A"
+                            android:textColor="@color/white" />
                     </TableRow>
 
-                    <!--downloads count row-->
-                    <TableRow android:layout_marginTop="5dp">
-
-                        <TextView
-                            android:id="@+id/downloadsLabelTv"
-                            style="@style/TextAppearance.MaterialComponents.Caption"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp"
-                            android:text="downloads" />
-
-                        <TextView
-                            android:id="@+id/downloadsTv"
-                            style="@style/TextAppearance.MaterialComponents.Caption"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:text="N/A" />
-                    </TableRow>
-
-                    <!--number pages row-->
+                    <!-- Number of pages -->
                     <TableRow android:layout_marginTop="5dp">
 
                         <TextView
@@ -203,7 +193,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
-                            android:text="pages" />
+                            android:text="pages"
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/pagesTv"
@@ -212,109 +203,113 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
                             android:layout_weight="1"
-                            android:text="N/A" />
+                            android:text="N/A"
+                            android:textColor="@color/white" />
                     </TableRow>
                 </TableLayout>
             </RelativeLayout>
 
-            <!--            book description-->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/toolbarRl"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- RelativeLayout PDF + Tabel Info disini -->
+
+                    <!-- LinearLayout Tombol -->
+                    <LinearLayout
+                        android:id="@+id/bookOptionsLl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/readBookBtn"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_rounded_black_transparent"
+                            android:drawableTop="@drawable/ic_book_white"
+                            android:padding="10dp"
+                            android:text="Read"
+                            android:textColor="@color/kuning_utama"
+                            android:textAllCaps="false"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/favoriteBtn"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_rounded_black_transparent"
+                            android:drawableTop="@drawable/ic_favorite_border_white"
+                            android:padding="10dp"
+                            android:text="Add Favorite"
+                            android:textColor="@color/kuning_utama"
+                            android:textAllCaps="false"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- TextView deskripsi + RecyclerView komentar dsb. -->
+
+                </LinearLayout>
+            </ScrollView>
+
+
+            <!-- Deskripsi Buku -->
             <TextView
                 android:id="@+id/descriptionTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="16dp"
                 android:text="The description in the book"
-                android:textColor="@color/black" />
-            <!--pemisah-->
+                android:textColor="@color/white" />
+
+            <!-- Garis pemisah -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="5dp"
-                android:background="@color/grey1" />
+                android:background="@color/black" />
 
+            <!-- Bagian komentar -->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/addCommentBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Comments"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-                <ImageButton
-                    android:id="@+id/addCommentBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:background="@android:color/transparent"
+                    android:background="@drawable/bg_button_rounded"
+                    android:drawableLeft="@drawable/ic_add_comment_black"
                     android:padding="10dp"
-                    android:src="@drawable/ic_add_comment_black" />
+                    android:text="Add Comment"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
-                <!--recycleView comment-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/commentRv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@id/addCommentBtn"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/row_comment"/>
-
-
+                    tools:listitem="@layout/row_comment" />
             </RelativeLayout>
-
 
         </LinearLayout>
     </ScrollView>
-
-    <!--button for book options-->
-    <LinearLayout
-        android:id="@+id/bookOptionsLl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
-        <!--read button-->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/readBookBtn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/item_utama"
-            android:drawableTop="@drawable/ic_book_white"
-            android:padding="10dp"
-            android:text="Read"
-            android:textColor="@color/kuning_utama" />
-
-        <!--donwload button-->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/downloadBookBtn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_weight="1"
-            android:background="@color/item_utama"
-            android:drawableTop="@drawable/ic_download_white"
-            android:padding="10dp"
-            android:text="Download"
-            android:textColor="@color/kuning_utama" />
-
-        <!--donwload button-->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/favoriteBtn"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="1dp"
-            android:layout_weight="1"
-            android:background="@color/item_utama"
-            android:drawableTop="@drawable/ic_favorite_border_white"
-            android:padding="10dp"
-            android:text="Add favorite"
-            android:textColor="@color/kuning_utama"
-            android:textSize="12sp" />
-
-    </LinearLayout>
-
 
 </RelativeLayout>

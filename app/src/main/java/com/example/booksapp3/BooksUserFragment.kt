@@ -14,24 +14,21 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import org.w3c.dom.Text
-
 
 class BooksUserFragment : Fragment {
 
     private lateinit var binding: FragmentBooksUserBinding
 
-    public companion object {
+    companion object {
         private const val TAG = "BOOK_USER_TAG"
 
-        // menerima data dari activity untuk memuat buku categoryId, category, uid
-        public fun newInstance(
+        // Menerima data dari activity untuk memuat buku categoryId, category, uid
+        fun newInstance(
             categoryId: String,
             category: String,
             uid: String
         ): BooksUserFragment {
             val fragment = BooksUserFragment()
-            // taruh data
             val args = Bundle()
             args.putString("categoryId", categoryId)
             args.putString("category", category)
@@ -52,15 +49,14 @@ class BooksUserFragment : Fragment {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // ambil argument yang diteruskan di newInstance method
+        // Ambil argument yang diteruskan di newInstance method
         val args = arguments
-        if (args != null){
+        if (args != null) {
             categoryId = args.getString("categoryId")!!
             category = args.getString("category")!!
             uid = args.getString("uid")!!
         }
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -70,21 +66,24 @@ class BooksUserFragment : Fragment {
         // Inflate the layout for this fragment
         binding = FragmentBooksUserBinding.inflate(LayoutInflater.from(context), container, false)
 
-        // load pdf sesuai dengan kategori
+        // Load pdf sesuai dengan kategori
         Log.d(TAG, "onCreateView: Category: $category")
-            if (category == "All"){
+        when (category) {
+            "All" -> {
                 loadAllBooks()
             }
-            else if (category == "Most Viewed"){
+            "Populer" -> {
                 loadMostViewedDownloadedBooks("viewsCount")
             }
-            else{
+            else -> {
                 loadCategorizedBooks()
             }
-        // search
+        }
+
+        // Search
         binding.searchEt.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Tidak perlu diimplementasikan jika tidak digunakan
+                // Tidak perlu diimplementasikan
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -96,7 +95,7 @@ class BooksUserFragment : Fragment {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                // Tidak perlu diimplementasikan jika tidak digunakan
+                // Tidak perlu diimplementasikan
             }
         })
 
@@ -104,86 +103,70 @@ class BooksUserFragment : Fragment {
     }
 
     private fun loadAllBooks() {
-        // init list
         pdfArrayList = ArrayList()
         val ref = FirebaseDatabase.getInstance().getReference("Books")
-        ref.addValueEventListener(object: ValueEventListener{
+        ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                // clear list sebelum mulai memasukkan data
                 pdfArrayList.clear()
-                for (ds in snapshot.children){
-                    // ambil data
+                for (ds in snapshot.children) {
                     val model = ds.getValue(ModelPdf::class.java)
-                    // tambahkan data ke list
-                    pdfArrayList.add(model!!)
+                    model?.let { pdfArrayList.add(it) }
                 }
-                // setup adapter
-                adapterPdfUser = AdapterPdfUser(context!!, pdfArrayList)
-                // atur adapter ke recyler
+                adapterPdfUser = AdapterPdfUser(requireContext(), pdfArrayList)
                 binding.bookRv.adapter = adapterPdfUser
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                // Tidak perlu diimplementasikan
             }
-
         })
     }
 
     private fun loadMostViewedDownloadedBooks(orderBy: String) {
-        // init list
         pdfArrayList = ArrayList()
         val ref = FirebaseDatabase.getInstance().getReference("Books")
-        ref.orderByChild(orderBy).limitToLast(12)
-            .addValueEventListener(object: ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                // clear list sebelum mulai memasukkan data
-                pdfArrayList.clear()
-                for (ds in snapshot.children){
-                    // ambil data
-                    val model = ds.getValue(ModelPdf::class.java)
-                    // tambahkan data ke list
-                    pdfArrayList.add(model!!)
+        // Ambil 12 data terakhir (nilai terbesar) menurut viewsCount
+        ref.orderByChild(orderBy)
+            .limitToLast(12)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    pdfArrayList.clear()
+                    for (ds in snapshot.children) {
+                        val model = ds.getValue(ModelPdf::class.java)
+                        model?.let { pdfArrayList.add(it) }
+                    }
+                    // Data akan diurutkan ascending (kecil -> besar)
+                    // Balik (reverse) agar yang terbesar tampil paling atas
+                    pdfArrayList.reverse()
+
+                    adapterPdfUser = AdapterPdfUser(requireContext(), pdfArrayList)
+                    binding.bookRv.adapter = adapterPdfUser
                 }
-                // setup adapter
-                adapterPdfUser = AdapterPdfUser(context!!, pdfArrayList)
-                // atur adapter ke recyler
-                binding.bookRv.adapter = adapterPdfUser
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    // Tidak perlu diimplementasikan
+                }
+            })
     }
 
     private fun loadCategorizedBooks() {
         pdfArrayList = ArrayList()
         val ref = FirebaseDatabase.getInstance().getReference("Books")
         ref.orderByChild("categoryId").equalTo(categoryId)
-            .addValueEventListener(object: ValueEventListener{
+            .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    // clear list sebelum mulai memasukkan data
                     pdfArrayList.clear()
-                    for (ds in snapshot.children){
-                        // ambil data
+                    for (ds in snapshot.children) {
                         val model = ds.getValue(ModelPdf::class.java)
-                        // tambahkan data ke list
-                        pdfArrayList.add(model!!)
+                        model?.let { pdfArrayList.add(it) }
                     }
-                    // setup adapter
-                    adapterPdfUser = AdapterPdfUser(context!!, pdfArrayList)
-                    // atur adapter ke recyler
+                    adapterPdfUser = AdapterPdfUser(requireContext(), pdfArrayList)
                     binding.bookRv.adapter = adapterPdfUser
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+                    // Tidak perlu diimplementasikan
                 }
-
             })
     }
-
-
 }

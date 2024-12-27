@@ -5,13 +5,14 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="1dp"
     android:elevation="0dp"
-    app:cardBackgroundColor="@color/white"
+    app:cardBackgroundColor="@color/black"
     app:cardCornerRadius="5sp"
     app:contentPadding="8dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/black">
 
         <!--gambar profile-->
         <com.google.android.material.imageview.ShapeableImageView
@@ -31,7 +32,7 @@
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/profileIv"
             android:text="name"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <!--date-->
@@ -53,7 +54,7 @@
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/profileIv"
             android:text="comment user"
-            android:textColor="@color/abu_abu"/>
+            android:textColor="@color/white"/>
 
     </RelativeLayout>
 

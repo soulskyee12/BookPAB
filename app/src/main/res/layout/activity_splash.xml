@@ -8,7 +8,7 @@
     android:background="@color/hitam_menu_awal"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".SplashActivity">
+    tools:context=".LoadingActivity">
 
     <ImageView
         android:layout_width="271dp"

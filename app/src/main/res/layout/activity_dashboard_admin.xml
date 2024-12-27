@@ -10,6 +10,7 @@
 
 
     <!--Ini buat toolbar-->
+    <!--search-->
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
@@ -36,7 +37,7 @@
             android:layout_toEndOf="@id/profileBtn"
             android:text="Welcome Agus Salim"
             android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:textSize="18sp" />
         <!--subtitles-->
         <TextView
             android:id="@+id/subTitleTv"
@@ -59,7 +60,7 @@
             android:src="@drawable/ic_logout2_white" />
 
     </RelativeLayout>
-    <!--search-->
+
     <EditText
         android:id="@+id/searchEt"
         android:layout_width="match_parent"

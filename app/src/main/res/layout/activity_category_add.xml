@@ -41,6 +41,7 @@
             android:fontFamily="sans-serif-condensed"
             android:text="Add New Category"
             android:textColor="@color/white"
+            android:textStyle="bold"
             android:textSize="28sp" />
 
     </RelativeLayout>
@@ -60,9 +61,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_edittext01"
-            android:drawableStart="@drawable/ic_category_orange"
             android:drawablePadding="10dp"
             android:hint="Category Title"
+            android:textStyle="bold"
             android:inputType="textPersonName|textCapSentences"
             android:padding="10dp"
             android:textColor="@color/white"
@@ -78,10 +79,13 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="20dp"
+        android:textSize="18sp"
         android:background="@drawable/shape_button01"
         android:text="Submit"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        />
 
 
 

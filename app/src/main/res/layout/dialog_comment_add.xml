@@ -37,13 +37,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_edittext01"
-            android:drawablePadding="10dp"
-            android:inputType="textMultiLine|textCapSentences"
             android:drawableStart="@drawable/ic_add_comment_black"
+            android:drawablePadding="10dp"
             android:hint="Comment"
+            android:textColor="@color/white"
+            android:inputType="textMultiLine|textCapSentences"
             android:textColorHint="@color/white"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

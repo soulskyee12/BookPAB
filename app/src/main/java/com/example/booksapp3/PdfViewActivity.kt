@@ -59,7 +59,7 @@ class PdfViewActivity : AppCompatActivity() {
                 }
             })
     }
-    
+
     private fun loadBookFromUrl(pdfUrl: String) {
         Log.d(TAG, "loadBookFromUrl: Ambil pdf dari storage fb pake url")
 

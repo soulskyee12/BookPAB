@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="140dp"
     android:layout_marginBottom="5dp"
-    app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="5dp"
+    app:cardBackgroundColor="@color/kuning_utama"
+    app:cardCornerRadius="15dp"
     app:cardElevation="0dp"
     app:contentPadding="5dp">
 
@@ -14,39 +14,42 @@
         android:layout_height="match_parent"
         android:background="@color/kuning_utama">
 
-        <!--nampilin Pdf dan loading bar-->
+        <!-- Menampilkan PDF dan loading bar dengan sudut melengkung -->
         <RelativeLayout
             android:id="@+id/pdfRl"
             android:layout_width="100dp"
-            android:layout_height="140dp"
+            android:layout_height="135dp"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="5dp"
-            android:background="@color/grey1">
+            android:background="@drawable/rounded_background"
+            android:clipToOutline="true">
 
-            <!--pdf view-->
+            <!-- PDFView -->
             <com.github.barteksc.pdfviewer.PDFView
                 android:id="@+id/pdfView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-            <!--progress bar-->
+
+            <!-- ProgressBar -->
             <ProgressBar
                 android:id="@+id/progressBar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </RelativeLayout>
 
-        <!--        books title-->
+        <!-- Judul Buku -->
         <TextView
             android:id="@+id/titleTv"
             style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/pdfRl"
+            android:layout_marginStart="8dp"
             android:maxLines="1"
             android:textColor="@color/black"
             android:text="Book Title" />
 
-        <!--        book description-->
+        <!-- Deskripsi Buku -->
         <TextView
             android:id="@+id/descriptionTv"
             style="@style/TextAppearance.MaterialComponents.Body2"
@@ -55,12 +58,13 @@
             android:layout_below="@id/titleTv"
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/pdfRl"
+            android:layout_marginStart="8dp"
             android:ellipsize="end"
             android:maxLines="4"
             android:text="Book Description"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
-        <!--        book category-->
+        <!-- Kategori Buku -->
         <TextView
             android:id="@+id/categoryTv"
             style="@style/TextAppearance.MaterialComponents.Caption"
@@ -72,7 +76,7 @@
             android:textColor="@color/black"
             android:text="Category" />
 
-        <!--        book size-->
+        <!-- Ukuran Buku -->
         <TextView
             android:id="@+id/sizeTv"
             style="@style/TextAppearance.MaterialComponents.Caption"
@@ -80,11 +84,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@id/pdfRl"
+            android:layout_marginStart="8dp"
             android:maxLines="1"
             android:textColor="@color/black"
             android:text="14MB" />
 
-        <!--   date     -->
+        <!-- Tanggal -->
         <TextView
             android:id="@+id/dateTv"
             style="@style/TextAppearance.MaterialComponents.Caption"
@@ -93,11 +98,11 @@
             android:layout_alignParentBottom="true"
             android:layout_toStartOf="@id/categoryTv"
             android:layout_toEndOf="@id/sizeTv"
+            android:layout_marginStart="8dp"
             android:maxLines="1"
             android:textColor="@color/black"
             android:text="dd/MM/YYYY"
             android:textAlignment="center" />
-
 
     </RelativeLayout>
 
