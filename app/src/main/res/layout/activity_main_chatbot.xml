@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatActivity"
+    android:background="@color/item_utama">
+
+    <!-- Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="AI Konsultasi"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <!-- RecyclerView -->
+    <FrameLayout
+        android:id="@+id/frameLayout3"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
+        android:background="@drawable/chatbot_nickbox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="13dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back_white"
+            android:id="@+id/back_chatbot"/>
+
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewChat"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
+        app:layout_constraintBottom_toTopOf="@+id/chatInputFrame"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="8dp" />
+
+
+    <FrameLayout
+        android:id="@+id/chatInputFrame"
+        android:layout_width="340dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/chatbot_chatbox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <!--        <ImageButton-->
+        <!--            android:layout_width="34dp"-->
+        <!--            android:layout_height="34dp"-->
+        <!--            android:layout_margin="8dp"-->
+        <!--            android:background="@android:color/transparent"-->
+        <!--            android:src="@drawable/outline_image_24" />-->
+
+
+        <!--        <ImageButton-->
+        <!--            android:layout_width="34dp"-->
+        <!--            android:layout_height="34dp"-->
+        <!--            android:layout_marginStart="50dp"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:background="@android:color/transparent"-->
+        <!--            android:src="@drawable/outline_insert_drive_file_24" />-->
+
+        <!-- Kotak Input Teks -->
+
+        <!-- Send Button -->
+        <EditText
+            android:id="@+id/middleInputBox"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="0dp"
+            android:background="@drawable/chatbot_isichat"
+            android:hint="Enter text"
+            android:imeOptions="actionSend"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/sendButton"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_logout_white" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
