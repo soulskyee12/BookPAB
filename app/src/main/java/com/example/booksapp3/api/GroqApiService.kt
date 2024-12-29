@@ -10,7 +10,7 @@ import com.example.booksapp3.Model.MessageRes
 interface
 GroqApiService {
     @Headers(
-        "Authorization: Bearer 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",
+        "Authorization: Bearer GroqAPIHERE",
         "Content-Type: application/json"
     )
     @POST("chat/completions")
