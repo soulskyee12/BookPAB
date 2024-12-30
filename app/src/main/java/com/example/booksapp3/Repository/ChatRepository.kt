@@ -13,12 +13,12 @@ class ChatRepository {
     fun sendMessage(prompt: String, onResult: (String?) -> Unit) {
         // Konteks spesifik untuk membatasi lingkup jawaban
         val context = """
-            Anda adalah asisten AI yang ahli di bidang kesehatan kulit. Jawaban Anda harus fokus pada:
-            - com.example.skiva.model.Penyakit kulit dan penyebabnya.
-            - com.example.skiva.model.Penyakit kulit yang menular dan cara penanganannya.
-            - Jenis-jenis kulit wajah dan karakteristiknya.
-            - Skincare dan saran perawatan kulit.
-            - Saran pengobatan untuk masalah kulit umum.
+            Anda adalah asisten AI yang ahli di bidang aplikasi buku. Jawaban Anda harus fokus pada:
+            - com.example.bookapp.model.Genre buku dan rekomendasinya.
+            - com.example.bookapp.model.Buku-buku populer dan ulasannya.
+            - Jenis-jenis pembaca dan kebiasaan membaca.
+            - Tips memilih buku yang sesuai dengan minat pembaca.
+            - Saran penggunaan aplikasi untuk mengelola koleksi dan membaca buku.
             Jangan memberikan jawaban di luar topik ini.
         """.trimIndent()
 

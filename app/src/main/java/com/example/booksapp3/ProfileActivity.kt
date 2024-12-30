@@ -97,7 +97,6 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun loadFavoriteBooks(){
-
         //init arraylist
         booksArrayList = ArrayList();
 
