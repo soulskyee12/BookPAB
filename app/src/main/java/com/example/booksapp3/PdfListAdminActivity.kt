@@ -18,8 +18,6 @@ import com.google.firebase.database.ValueEventListener
 
 
 class PdfListAdminActivity : AppCompatActivity() {
-
-
     // View binding
     private lateinit var binding: ActivityPdfListAdminBinding
 

@@ -43,10 +43,7 @@ class DashboardAdminActivity : AppCompatActivity() {
 
         // search
         binding.searchEt.addTextChangedListener(object: TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                // dipanggil ketika user mengetik
                 try{
@@ -56,9 +53,7 @@ class DashboardAdminActivity : AppCompatActivity() {
 
                 }
             }
-
             override fun afterTextChanged(s: Editable?) {
-
             }
         })
 
@@ -76,9 +71,15 @@ class DashboardAdminActivity : AppCompatActivity() {
         binding.addPdfFab.setOnClickListener{
             startActivity(Intent(this, PdfAddActivity::class.java))
         }
+        binding.addArticleFab.setOnClickListener{
+            startActivity(Intent(this, ArticleAddActivity::class.java))
+        }
 
         binding.profileBtn.setOnClickListener{
             startActivity(Intent(this, ProfileActivity::class.java))
+        }
+        binding.ArticleView.setOnClickListener{
+            startActivity(Intent(this, ArticlesActivity::class.java))
         }
     }
 

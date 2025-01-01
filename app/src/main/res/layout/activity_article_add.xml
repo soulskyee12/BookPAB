@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ArticleAddActivity">
+
+    <!-- Toolbar -->
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_toolbar01">
+
+        <!-- Tombol Back -->
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:src="@drawable/ic_back_white" />
+
+        <!-- Gambar Icon -->
+        <ImageView
+            android:id="@+id/iconIv"
+            android:layout_width="250dp"
+            android:layout_height="240dp"
+            android:layout_below="@id/backBtn"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/gambar_submitbook" />
+
+        <!-- Judul -->
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iconIv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Add New article"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/white" />
+
+        <!-- (Dihapus) ImageButton attachPdfBtn lama yang di toolbar -->
+    </RelativeLayout>
+
+    <!-- Input Title -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/titleTil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="30dp"
+        app:hintEnabled="false">
+
+        <EditText
+            android:id="@+id/titleEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_edittext01"
+            android:drawablePadding="10dp"
+            android:hint="Article Title"
+            android:inputType="textPersonName|textCapWords"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey1"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Input Deskripsi -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/descriptionTil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTil"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        app:hintEnabled="false">
+
+        <EditText
+            android:id="@+id/descriptionEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_edittext01"
+            android:drawablePadding="10dp"
+            android:hint="article"
+            android:inputType="textImeMultiLine|textCapSentences"
+            android:padding="15dp"
+            android:textColorHint="@color/grey1"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <!-- Tombol Upload PDF -->
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/descriptionTil"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/kuning_utama"
+        android:text="Upload"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textColor="@color/item_utama"
+        android:padding="15dp" />
+
+</RelativeLayout>

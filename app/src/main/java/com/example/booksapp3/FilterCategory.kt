@@ -23,7 +23,6 @@ class FilterCategory(
                     filteredModels.add(model)
                 }
             }
-
             results.count = filteredModels.size
             results.values = filteredModels
         } else {
@@ -31,7 +30,6 @@ class FilterCategory(
             results.count = filterList.size
             results.values = filterList
         }
-
         return results
     }
 

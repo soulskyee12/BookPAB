@@ -14,17 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@drawable/shape_toolbar2">
-        <!--gambar profile user-->
-        <ImageButton
-            android:id="@+id/profileBtn"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/account_icon" />
+<!--        &lt;!&ndash;gambar profile user&ndash;&gt;-->
+<!--        <ImageButton-->
+<!--            android:id="@+id/profileBtn"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:src="@drawable/account_icon" />-->
         <!--judul-->
         <TextView
             android:id="@+id/titleTv"
@@ -32,7 +32,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
-            android:layout_toEndOf="@id/profileBtn"
             android:text="Welcome Agus Salim"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -43,7 +42,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/titleTv"
             android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/profileBtn"
             android:text="contoh@gmail.com"
             android:textColor="@color/white" />
         <!--log out button -->
@@ -81,6 +79,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/tabLayout"
-        android:background="@color/black" />
+        android:layout_above="@id/bottom_navbar"
+        android:background="@color/black" >
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/hitam_menu_awal"
+        app:menu="@menu/bottom_nav"
+        app:itemActiveIndicatorStyle="@color/kuning_utama">
+
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </RelativeLayout>

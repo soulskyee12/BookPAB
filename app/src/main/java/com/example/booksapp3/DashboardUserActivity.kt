@@ -12,6 +12,8 @@ import androidx.viewpager.widget.ViewPager
 import com.example.booksapp3.databinding.ActivityDashboardUserBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import android.view.MenuItem
+
 
 class DashboardUserActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDashboardUserBinding
@@ -39,9 +41,31 @@ class DashboardUserActivity : AppCompatActivity() {
             finish()
         }
 
-        // Menuju ProfileActivity
-        binding.profileBtn.setOnClickListener {
-            startActivity(Intent(this, ProfileActivity::class.java))
+//        // Menuju ProfileActivity
+//        binding.profileBtn.setOnClickListener {
+//            startActivity(Intent(this, ProfileActivity::class.java))
+//        }
+
+        binding.bottomNavbar.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.home -> {
+                    startActivity(Intent(this, DashboardUserActivity::class.java))
+                    true
+                }
+                R.id.chatBot -> {
+                    startActivity(Intent(this, ChatActivity::class.java))
+                    true
+                }
+                R.id.articles -> {
+                    startActivity(Intent(this, ArticlesActivity::class.java))
+                    true
+                }
+                R.id.profileIv -> {
+                    startActivity(Intent(this, ProfileActivity::class.java))
+                    true
+                }
+                else -> false
+            }
         }
     }
 
@@ -115,16 +139,20 @@ class DashboardUserActivity : AppCompatActivity() {
     private fun checkUser() {
         // Ambil user yang sedang login
         val firebaseUser = firebaseAuth.currentUser
+        val menu = binding.bottomNavbar.menu
+
         if (firebaseUser == null) {
             // Jika belum login
             binding.titleTv.text = "Not Logged In"
             binding.subTitleTv.text = ""
             // Sembunyikan profile & logout
-            binding.profileBtn.visibility = View.GONE
+//            binding.profileBtn.visibility = View.GONE
+            menu.findItem(R.id.profileIv).isVisible = false // Hide Profile menu
             binding.logoutBtn.visibility = View.GONE
         } else {
             // Jika sudah login, ambil UID
             val uid = firebaseUser.uid
+
 
             // Ambil data user dari DB
             val ref = FirebaseDatabase.getInstance().getReference("Users")
@@ -141,7 +169,8 @@ class DashboardUserActivity : AppCompatActivity() {
                             binding.subTitleTv.text = email
 
                             // Tampilkan profile & logout
-                            binding.profileBtn.visibility = View.VISIBLE
+//                            binding.profileBtn.visibility = View.VISIBLE
+                            menu.findItem(R.id.profileIv)?.isVisible = true // Show Profile menu item
                             binding.logoutBtn.visibility = View.VISIBLE
                         }
                     }

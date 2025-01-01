@@ -10,7 +10,6 @@
 
 
     <!--Ini buat toolbar-->
-    <!--search-->
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
@@ -60,7 +59,7 @@
             android:src="@drawable/ic_logout2_white" />
 
     </RelativeLayout>
-
+    <!--search-->
     <EditText
         android:id="@+id/searchEt"
         android:layout_width="match_parent"
@@ -75,7 +74,6 @@
         android:padding="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
-
     <!--    categories-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriesRv"
@@ -97,7 +95,20 @@
         android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
+        <!-- Add article-->
+
+
         <!-- Add Category-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ArticleView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/kuning_utama"
+            android:src="@drawable/ic_baca_artikel_white"
+            android:tint="@color/black"
+            app:fabCustomSize="50dp" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/addCategoryBtn"
             android:layout_width="0dp"
@@ -117,9 +128,18 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/kuning_utama"
             android:src="@drawable/ic_book_white"
-            android:tint="@color/white"
+            android:tint="@color/black"
             app:fabCustomSize="50dp" />
-
+        <!-- Add article-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addArticleFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/kuning_utama"
+            android:src="@drawable/ic_articles_white"
+            android:tint="@color/black"
+            app:fabCustomSize="50dp"
+            android:layout_marginLeft="10dp"/>
 
     </LinearLayout>
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".BooksUserFragment"
+    tools:context=".ArticlesFragment"
     android:background="@color/item_utama">
 
     <!--search-->
@@ -26,5 +26,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/row_articles"/>
+        tools:listitem="@layout/row_pdf_user"/>
 </LinearLayout>

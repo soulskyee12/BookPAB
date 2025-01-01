@@ -318,32 +318,4 @@ class PdfDetailActivity : AppCompatActivity() {
                     .show()
             }
     }
-
-//    private fun removeFromFavorite(context: Context, bookId: String) {
-//        val TAG = "REMOVE_FAV_TAG"
-//        Log.d(TAG, "removeFromFavorite: Removing from favorites")
-//
-//        val firebaseAuth = FirebaseAuth.getInstance()
-//
-//        // db ref
-//        val ref = FirebaseDatabase.getInstance().getReference("Users")
-//        ref.child(firebaseAuth.uid!!).child("Favorites").child(bookId)
-//            .removeValue()
-//            .addOnSuccessListener {
-//                Log.d(TAG, "removeFromFavorite: Removed from fav")
-//                Toast.makeText(
-//                    context,
-//                    "Dihapus dari favorit",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            }
-//            .addOnFailureListener { e ->
-//                Log.d(TAG, "removeFromFavorite: Failed to remove from fav due to ${e.message}")
-//                Toast.makeText(
-//                    context,
-//                    "Gagal untuk menghapus karena ${e.message}",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            }
-//    }
 }

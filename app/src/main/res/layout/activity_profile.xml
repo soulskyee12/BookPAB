@@ -40,7 +40,7 @@
             android:textColor="@color/white"
             android:textStyle="bold" />
 
-        <!--edit button-->
+        <!--AI-->
         <Button
             android:id="@+id/keAI"
             android:layout_width="wrap_content"
