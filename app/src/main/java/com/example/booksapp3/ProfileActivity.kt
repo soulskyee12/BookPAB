@@ -46,9 +46,6 @@ class ProfileActivity : AppCompatActivity() {
             startActivity(Intent(this, ProfileEditActivity::class.java))
         }
 
-        binding.keAI.setOnClickListener {
-            startActivity(Intent(this, ChatActivity::class.java))
-        }
 
 
 

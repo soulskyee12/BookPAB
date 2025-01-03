@@ -40,16 +40,6 @@
             android:textColor="@color/white"
             android:textStyle="bold" />
 
-        <!--AI-->
-        <Button
-            android:id="@+id/keAI"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="AI chatbot"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="50dp"/>
-
         <ImageButton
             android:id="@+id/profileEditBtn"
             android:layout_width="wrap_content"
