@@ -62,9 +62,9 @@ class ChatActivity : AppCompatActivity() {
             recyclerView.scrollToPosition(chatMessages.size - 1)
         }
         val backButton = findViewById<ImageButton>(R.id.back_chatbot)
+
         backButton.setOnClickListener {
-            startActivity(Intent(this, ProfileActivity::class.java)) // Replace with actual destination
-            finish()
+            onBackPressed()
         }
 
 

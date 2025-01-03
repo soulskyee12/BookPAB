@@ -58,6 +58,32 @@ class ArticlesActivity : AppCompatActivity() {
             }
         })
 
+        binding.bottomNavbar.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.home -> {
+                    startActivity(Intent(this, DashboardUserActivity::class.java))
+                    true
+                }
+
+                R.id.chatBot -> {
+                    startActivity(Intent(this, ChatActivity::class.java))
+                    true
+                }
+
+                R.id.articles -> {
+                    startActivity(Intent(this, ArticlesActivity::class.java))
+                    true
+                }
+
+                R.id.profileIv -> {
+                    startActivity(Intent(this, ProfileActivity::class.java))
+                    true
+                }
+
+                else -> false
+            }
+        }
+
         // listener back btn
         binding.backBtn.setOnClickListener {
             onBackPressed()
