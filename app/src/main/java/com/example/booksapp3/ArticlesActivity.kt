@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.booksapp3.databinding.ActivityArticlesBinding
 import com.example.booksapp3.databinding.ActivityPdfListAdminBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -27,6 +29,7 @@ class ArticlesActivity : AppCompatActivity() {
 
     // Adapter
     private lateinit var adapterArticles: AdapterArticles
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         window.statusBarColor = resources.getColor(R.color.item_utama)
@@ -34,12 +37,17 @@ class ArticlesActivity : AppCompatActivity() {
         binding = ActivityArticlesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        firebaseAuth = FirebaseAuth.getInstance()
+        //user check
+        checkUser()
+        
         // Setup adapter with empty list
         adapterArticles = AdapterArticles(this, articlesArrayList)
         binding.articlesRv.adapter = adapterArticles
 
         // Load PDFs/books
         loadPdfList()
+
 
         // Search functionality
         binding.searchEt.addTextChangedListener(object : TextWatcher {
@@ -109,5 +117,42 @@ class ArticlesActivity : AppCompatActivity() {
                 Log.e(TAG, "Database error: ${error.message}")
             }
         })
+    }
+    private fun checkUser() {
+        // Ambil user yang sedang login
+        val firebaseUser = firebaseAuth.currentUser
+        val menu = binding.bottomNavbar.menu
+
+        if (firebaseUser == null) {
+            // Sembunyikan profile & logout
+            menu.findItem(R.id.profileIv).isVisible = false // Hide Profile menu
+        } else {
+            // Jika sudah login, ambil UID
+            val uid = firebaseUser.uid
+
+
+            // Ambil data user dari DB
+            val ref = FirebaseDatabase.getInstance().getReference("Users")
+            ref.child(uid)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+
+                            val name = snapshot.child("name").value.toString()
+                            val email = snapshot.child("email").value.toString()
+
+                            // Tampilkan di TextView
+                            binding.titleTv.text = "Welcome, $name"
+                            // Tampilkan profile & logout
+                            menu.findItem(R.id.profileIv)?.isVisible = true // Show Profile menu item
+
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        // Log error jika perlu
+                    }
+                })
+        }
     }
 }

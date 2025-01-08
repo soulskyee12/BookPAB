@@ -146,7 +146,7 @@ class DashboardUserActivity : AppCompatActivity() {
             binding.titleTv.text = "Not Logged In"
             binding.subTitleTv.text = ""
             // Sembunyikan profile & logout
-//            binding.profileBtn.visibility = View.GONE
+
             menu.findItem(R.id.profileIv).isVisible = false // Hide Profile menu
             binding.logoutBtn.visibility = View.GONE
         } else {
