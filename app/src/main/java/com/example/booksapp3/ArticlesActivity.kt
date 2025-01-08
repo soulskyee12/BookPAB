@@ -137,12 +137,7 @@ class ArticlesActivity : AppCompatActivity() {
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()) {
-
-                            val name = snapshot.child("name").value.toString()
-                            val email = snapshot.child("email").value.toString()
-
-                            // Tampilkan di TextView
-                            binding.titleTv.text = "Welcome, $name"
+                            
                             // Tampilkan profile & logout
                             menu.findItem(R.id.profileIv)?.isVisible = true // Show Profile menu item
 
