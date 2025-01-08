@@ -26,7 +26,7 @@
     <!-- RecyclerView -->
     <FrameLayout
         android:id="@+id/frameLayout3"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/chatbot_nickbox"
         app:layout_constraintEnd_toEndOf="parent"
